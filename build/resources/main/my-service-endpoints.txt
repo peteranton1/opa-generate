@@ -1,0 +1,30 @@
+||HTTP Request Method||Endpoint||Description||
+|PUT|/my-service/v1/accounts/(subscriptionKey)/transactions/reversed|PUT my-service accounts transactions reversed|
+|PUT|/my-service/v1/accounts/(subscriptionKey)/transactions/debited|PUT my-service accounts transactions debited|
+|PUT|/my-service/v1/accounts/(subscriptionKey)/transactions/credited|PUT my-service accounts transactions credited|
+|PUT|/my-service/v1/accounts/(subscriptionKey)/adjustments/(adjustmentId)/(transactionId)|PUT my-service accounts adjustments|
+|GET|/my-service/v1/accounts/(subscriptionKey)/adjustments/(adjustmentId)|GET my-service accounts adjustments|
+|PUT|/my-service/v1/accounts/(subscriptionKey)/holds|PUT my-service accounts holds|
+|GET|/my-service/v1/accounts/(subscriptionKey)/holds|GET my-service accounts holds|
+|PATCH|/my-service/v1/accounts/(subscriptionKey)/holds/(holdId)|PATCH my-service accounts holds|
+|POST|/my-service/v1/account/(subscriptionKey)/transactions/unreserved|POST my-service account transactions unreserved|
+|GET|/my-service/v1/transactions/count/(fromDateTime)/(toDateTime)|GET my-service transactions count|
+|GET|/my-service/v1/accounts/(subscriptionKey)/transactionsinflight|GET my-service accounts transactionsinflight|
+|GET|/my-service/v1/transactions/(transactionId)/linked/booked|GET my-service transactions linked booked|
+|GET|/my-service/v1/product/stats/(jobRunId)/(accountingTimestamp)|GET my-service product stats|
+|GET|/my-service/v1/product/stats/multiple/(jobRunId)/(accountingTimestamp)|GET my-service product stats multiple|
+|POST|/my-service/publish/message|POST my-service publish message|
+|POST|/my-service/v2/reserve|POST my-service v2 reserve|
+|GET|/my-service/v1/transaction/(subscriptionKey)/(transactionId)|GET my-service transaction|
+|GET|/my-service/v1/accounts/(subscriptionKey)/transactions/count/(fromValueDatetime)/(toValueDatetime)|GET my-service accounts transactions count|
+|GET|/my-service/v2/accounts/(subscriptionKeys)/balances|GET my-service v2 accounts balances|
+|GET|/my-service/v1/accounts/(subscriptionKey)/balances|GET my-service accounts balances|
+|GET|/my-service/v1/accounts/(subscriptionKey)/transactions|GET my-service accounts transactions|
+|GET|/my-service/v1/accounts/(subscriptionKey)/averageDailyBalance/(fromValueDatetime)/(toValueDatetime)|GET my-service accounts averageDailyBalance|
+|GET|/my-service/v3/accounts/(subscriptionKeys)/balances|GET my-service v3 accounts balances|
+|GET|/my-service/v1/accounts/(subscriptionKey)/balances/interest/(accountingTimestamp)|GET my-service accounts balances interest|
+|POST|/my-service/v1/authorisations/reversal|POST my-service authorisations reversal|
+|GET|/my-service/v1/balance-snapshot/(jobRunId)/status/(accountingTimestamp)|GET my-service balance-snapshot status|
+|PATCH|/my-service/v3/account/(subscriptionKey)|PATCH my-service v3 account|
+|POST|/my-service/v3/account|POST my-service v3 account|
+|POST|/my-service/v1/processPayments|POST my-service processPayments|

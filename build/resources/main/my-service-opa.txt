@@ -1,0 +1,266 @@
+---
+{code:java}
+package corebankinga.ledgermanager
+import data.helpers.token
+
+default allow=false
+
+
+# PUT /my-service/v1/accounts/(subscriptionKey)/transactions/reversed
+allow {
+	some subscriptionKey
+	input.method == "PUT"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "transactions", "reversed"]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner"], subscriptionKey)
+}
+
+# PUT /my-service/v1/accounts/(subscriptionKey)/transactions/debited
+allow {
+	some subscriptionKey
+	input.method == "PUT"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "transactions", "debited"]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# PUT /my-service/v1/accounts/(subscriptionKey)/transactions/credited
+allow {
+	some subscriptionKey
+	input.method == "PUT"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "transactions", "credited"]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# PUT /my-service/v1/accounts/(subscriptionKey)/adjustments/(adjustmentId)/(transactionId)
+allow {
+	some subscriptionKey
+	some adjustmentId
+	some transactionId
+	input.method == "PUT"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "adjustments", adjustmentId, transactionId]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# GET /my-service/v1/accounts/(subscriptionKey)/adjustments/(adjustmentId)
+allow {
+	some subscriptionKey
+	some adjustmentId
+	input.method == "GET"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "adjustments", adjustmentId]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# PUT /my-service/v1/accounts/(subscriptionKey)/holds
+allow {
+	some subscriptionKey
+	input.method == "PUT"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "holds"]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# GET /my-service/v1/accounts/(subscriptionKey)/holds
+allow {
+	some subscriptionKey
+	input.method == "GET"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "holds"]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# PATCH /my-service/v1/accounts/(subscriptionKey)/holds/(holdId)
+allow {
+	some subscriptionKey
+	some holdId
+	input.method == "PATCH"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "holds", holdId]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# POST /my-service/v1/account/(subscriptionKey)/transactions/unreserved
+allow {
+	some subscriptionKey
+	input.method == "POST"
+	input.path == ["my-service", "v1", "account", subscriptionKey, "transactions", "unreserved"]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# GET /my-service/v1/transactions/count/(fromDateTime)/(toDateTime)
+allow {
+	some fromDateTime
+	some toDateTime
+	input.method == "GET"
+	input.path == ["my-service", "v1", "transactions", "count", fromDateTime, toDateTime]
+	token.valid
+}
+
+# GET /my-service/v1/accounts/(subscriptionKey)/transactionsinflight
+allow {
+	some subscriptionKey
+	input.method == "GET"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "transactionsinflight"]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# GET /my-service/v1/transactions/(transactionId)/linked/booked
+allow {
+	some transactionId
+	input.method == "GET"
+	input.path == ["my-service", "v1", "transactions", transactionId, "linked", "booked"]
+	token.valid
+}
+
+# GET /my-service/v1/product/stats/(jobRunId)/(accountingTimestamp)
+allow {
+	some jobRunId
+	some accountingTimestamp
+	input.method == "GET"
+	input.path == ["my-service", "v1", "product", "stats", jobRunId, accountingTimestamp]
+	token.valid
+}
+
+# GET /my-service/v1/product/stats/multiple/(jobRunId)/(accountingTimestamp)
+allow {
+	some jobRunId
+	some accountingTimestamp
+	input.method == "GET"
+	input.path == ["my-service", "v1", "product", "stats", "multiple", jobRunId, accountingTimestamp]
+	token.valid
+}
+
+# POST /my-service/publish/message
+allow {
+	input.method == "POST"
+	input.path == ["my-service", "publish", "message"]
+	token.valid
+}
+
+# POST /my-service/v2/reserve
+allow {
+	input.method == "POST"
+	input.path == ["my-service", "v2", "reserve"]
+	token.valid
+}
+
+# GET /my-service/v1/transaction/(subscriptionKey)/(transactionId)
+allow {
+	some subscriptionKey
+	some transactionId
+	input.method == "GET"
+	input.path == ["my-service", "v1", "transaction", subscriptionKey, transactionId]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# GET /my-service/v1/accounts/(subscriptionKey)/transactions/count/(fromValueDatetime)/(toValueDatetime)
+allow {
+	some subscriptionKey
+	some fromValueDatetime
+	some toValueDatetime
+	input.method == "GET"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "transactions", "count", fromValueDatetime, toValueDatetime]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# GET /my-service/v2/accounts/(subscriptionKeys)/balances
+allow {
+	some subscriptionKeys
+	input.method == "GET"
+	input.path == ["my-service", "v2", "accounts", subscriptionKeys, "balances"]
+	token.valid
+}
+
+# GET /my-service/v1/accounts/(subscriptionKey)/balances
+allow {
+	some subscriptionKey
+	input.method == "GET"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "balances"]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# GET /my-service/v1/accounts/(subscriptionKey)/transactions
+allow {
+	some subscriptionKey
+	input.method == "GET"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "transactions"]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# GET /my-service/v1/accounts/(subscriptionKey)/averageDailyBalance/(fromValueDatetime)/(toValueDatetime)
+allow {
+	some subscriptionKey
+	some fromValueDatetime
+	some toValueDatetime
+	input.method == "GET"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "averageDailyBalance", fromValueDatetime, toValueDatetime]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# GET /my-service/v3/accounts/(subscriptionKeys)/balances
+allow {
+	some subscriptionKeys
+	input.method == "GET"
+	input.path == ["my-service", "v3", "accounts", subscriptionKeys, "balances"]
+	token.valid
+}
+
+# GET /my-service/v1/accounts/(subscriptionKey)/balances/interest/(accountingTimestamp)
+allow {
+	some subscriptionKey
+	some accountingTimestamp
+	input.method == "GET"
+	input.path == ["my-service", "v1", "accounts", subscriptionKey, "balances", "interest", accountingTimestamp]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# POST /my-service/v1/authorisations/reversal
+allow {
+	input.method == "POST"
+	input.path == ["my-service", "v1", "authorisations", "reversal"]
+	token.valid
+}
+
+# GET /my-service/v1/balance-snapshot/(jobRunId)/status/(accountingTimestamp)
+allow {
+	some jobRunId
+	some accountingTimestamp
+	input.method == "GET"
+	input.path == ["my-service", "v1", "balance-snapshot", jobRunId, "status", accountingTimestamp]
+	token.valid
+}
+
+# PATCH /my-service/v3/account/(subscriptionKey)
+allow {
+	some subscriptionKey
+	input.method == "PATCH"
+	input.path == ["my-service", "v3", "account", subscriptionKey]
+	token.valid
+	has_role_on_subscription(["PrimaryOwner", "Administrator"], subscriptionKey)
+}
+
+# POST /my-service/v3/account
+allow {
+	input.method == "POST"
+	input.path == ["my-service", "v3", "account"]
+	token.valid
+}
+
+# POST /my-service/v1/processPayments
+allow {
+	input.method == "POST"
+	input.path == ["my-service", "v1", "processPayments"]
+	token.valid
+}
+{code}

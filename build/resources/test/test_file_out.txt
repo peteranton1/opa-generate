@@ -1,0 +1,2 @@
+{PUT /v1/some/{subscriptionKey}/some/{someKey:.+}}
+    PrimaryOwner,Administrator

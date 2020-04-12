@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.opa.generator.OpaGeneratorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-12T19:22:29" hostname="webuser-PB50-70RF-RD-RC" time="0.012">
+  <properties/>
+  <testcase name="shouldGenerateUrlSourceWithInput" classname="com.opa.generator.OpaGeneratorTest" time="0.012"/>
+  <system-out><![CDATA[Total lines 58, total records 29
+Writing: /home/webuser/dev/proj/opa-generate/build/resources/main/my-service-endpoints.txt
+Writing: /home/webuser/dev/proj/opa-generate/build/resources/main/my-service-opa.txt
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.opa.generator.ResourceHelperTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-04-12T19:22:29" hostname="webuser-PB50-70RF-RD-RC" time="0.002">
+  <properties/>
+  <testcase name="shouldWriteFileAsText" classname="com.opa.generator.ResourceHelperTest" time="0.001"/>
+  <testcase name="shouldLoadFileAsText" classname="com.opa.generator.ResourceHelperTest" time="0.001"/>
+  <testcase name="shouldLoadFileAsTextList" classname="com.opa.generator.ResourceHelperTest" time="0.0"/>
+  <system-out><![CDATA[Writing: /home/webuser/dev/proj/opa-generate/build/resources/test/test_file_out.txt
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

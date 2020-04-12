@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    apply plugin: 'maven'
+    apply plugin: 'idea'
+
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'junit:junit:4.12'
+        implementation 'org.assertj:assertj-core:3.14.0'
+        implementation "com.google.guava:guava:28.1-jre"
+        implementation "commons-io:commons-io:2.4"
+        implementation "commons-lang:commons-lang:2.6"
+
+        compileOnly "org.projectlombok:lombok:1.18.10"
+        annotationProcessor "org.projectlombok:lombok:1.18.10"
+
+        testCompileOnly "org.projectlombok:lombok:1.18.10"
+        testAnnotationProcessor "org.projectlombok:lombok:1.18.10"
+    }
+}

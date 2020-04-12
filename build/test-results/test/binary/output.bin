@@ -1,0 +1,12 @@
+Total lines 2, total records 1
+Total lines 4, total records 2
+Ignoring line 4: 
+Total lines 5, total records 2
+Total lines 2, total records 1
+
+	!Total lines 58, total records 29
+
+	[Writing: /home/webuser/dev/proj/opa-generate/build/resources/main/my-service-endpoints.txt
+
+	UWriting: /home/webuser/dev/proj/opa-generate/build/resources/main/my-service-opa.txt
+TWriting: /home/webuser/dev/proj/opa-generate/build/resources/test/test_file_out.txt
